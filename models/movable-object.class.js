@@ -1,8 +1,10 @@
 class MovableObject {
     // Attributes
     x = 120;
-    y = 400;
+    y = 250;
     image;
+    height = 150;
+    width = 100;
 
     // Functions 
     loadImage(path) {
