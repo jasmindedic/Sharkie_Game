@@ -5,7 +5,16 @@ class MovableObject {
     image;
 
     // Functions 
+    loadImage(path) {
+        this.image = new Image();
+        this.image.src = path;
+    }
+
     moveRight() {
         console.log("Moving right");
+    }
+
+    moveLeft() {
+
     }
 }
