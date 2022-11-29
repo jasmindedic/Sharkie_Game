@@ -40,4 +40,16 @@ class MovableObject {
             this.x -= this.speed;
         }, 100 / 60);
     }
+
+    moveUp() {
+        setInterval(() => {
+            this.y -= this.speed;
+        }, 100 / 60);
+    }
+
+    moveDown() {
+        setInterval(() => {
+            this.y += this.speed;
+        }, 100 / 60);
+    }
 }

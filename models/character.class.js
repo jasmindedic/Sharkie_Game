@@ -3,7 +3,7 @@ class Character extends MovableObject {
     width = 220;
     height = 220;
     y = 120;
-    speed = 10;
+    speed = 7;
     IMAGES_WALKING = [
         'images/1.Sharkie/3.Swim/1.png',
         'images/1.Sharkie/3.Swim/2.png',
@@ -48,7 +48,6 @@ class Character extends MovableObject {
                 this.otherDirection = false;
                 this.swimming_sound.play();
             }
-
 
             this.world.camera_x = -this.x + 100;
         }, 1000 / 60);
