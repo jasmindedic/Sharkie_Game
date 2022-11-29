@@ -1,7 +1,7 @@
 class Enemy extends MovableObject {
     y = 260;
     height = 80;
-    width = 80
+    width = 70
     IMAGES_WALKING = [
         'images/2.Enemy/1.Puffer fish (3 color options)/1.Swim/1.swim1.png',
         'images/2.Enemy/1.Puffer fish (3 color options)/1.Swim/1.swim2.png',

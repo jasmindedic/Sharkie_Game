@@ -21,12 +21,31 @@ class MovableObject {
     }
 
     drawFrame(ctx) {
-        ctx.beginPath();
-        ctx.linesWidth = "5";
-        ctx.strokesStyle = "blue";
-        ctx.rect(this.x, this.y, this.height, this.width);
-        ctx.stroke();
+
+        if (this instanceof Character || this instanceof Enemy || this instanceof Enemy_2 || this instanceof Enemy_3) {
+            ctx.beginPath();
+            ctx.linesWidth = "5";
+            ctx.strokesStyle = "blue";
+            ctx.rect(this.x, this.y, this.height, this.width);
+            ctx.stroke();
+        }
     }
+
+    // Collision Formel
+    /*  isColliding(obj) {
+         return (this.X + this.width) >= obj.X && this.X <= (obj.X + obj.width) &&
+             (this.Y + this.offsetY + this.height) >= obj.Y &&
+             (this.Y + this.offsetY) <= (obj.Y + obj.height) &&
+             obj.onCollisionCourse; // Optional: hiermit könnten wir schauen, ob ein Objekt sich in die richtige Richtung bewegt. Nur dann kollidieren wir. Nützlich bei Gegenständen, auf denen man stehen kann.
+     } */
+
+    isColliding(mo) {
+        return this.x + this.width > mo.x &&
+            this.y + this.height > mo.y &&
+            this.x < mo.x &&
+            this.y < mo.height;
+    }
+
 
     loadImages(arr) {
         arr.forEach(path => {
