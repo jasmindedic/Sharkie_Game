@@ -1,79 +1,5 @@
 const level1 = new Level(
     [
-        /* First Enemy (Pufferfish) */
-        new Enemy(100, 0),
-        new Enemy(350, 100),
-        new Enemy(350, 300),
-        new Enemy(550, 250),
-        new Enemy(610, 400),
-        new Enemy(700, 50),
-        new Enemy(980, 300),
-        new Enemy(1250, 0),
-        new Enemy(1300, 160),
-        new Enemy(1350, 30),
-        new Enemy(1500, 300),
-        new Enemy(1600, 220),
-        new Enemy(1700, 200),
-        new Enemy(1890, 200),
-        new Enemy(1990, 140),
-        new Enemy(1790, 240),
-        new Enemy(2250, 0),
-        new Enemy(2250, 200),
-        new Enemy(2350, 130),
-        new Enemy(2450, 170),
-        new Enemy(2550, 130),
-        new Enemy(2480, 140),
-        new Enemy(2450, 350),
-        new Enemy(2850, 0),
-        new Enemy(2950, 90),
-        new Enemy(3050, 190),
-        new Enemy(3250, 320),
-        new Enemy(3350, 120),
-        new Enemy(3450, 160),
-        new Enemy(3250, 400),
-        new Enemy(3750, 150),
-        new Enemy(4000, 220),
-        new Enemy(4150, 320),
-        new Enemy(4250, 220),
-        new Enemy(4350, 120),
-
-        /* Second Enemy (Qualle) */
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-        new Enemy_2(),
-
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-        new Enemy_3(),
-
-        /* Endboss (Orca) */
-        new Endboss()
-    ],
-
-
-    [
-        /* Bubbles */
-        new Light(),
-    ],
-
-
-    [
         new BackgroundObject('images/3. Background/Layers/5. Water/L2.png', -720),
         new BackgroundObject('images/3. Background/Layers/4.Fondo 2/L2.png', -720),
         new BackgroundObject('images/3. Background/Layers/3.Fondo 1/D2.png', -720),
@@ -116,5 +42,97 @@ const level1 = new Level(
         new BackgroundObject('images/3. Background/Legacy/Layers/1. Light/3.png', 720 * 6),
     ],
 
+    [
+        /* Bubbles */
+        new Light(),
+    ],
+
+    [
+        /* First Enemy (Pufferfish) */
+        new Enemy(100, 0),
+        new Enemy(350, 100),
+        new Enemy(350, 300),
+        new Enemy(550, 250),
+        new Enemy(610, 400),
+        new Enemy(700, 50),
+        new Enemy(980, 300),
+        new Enemy(1250, 0),
+        new Enemy(1300, 160),
+        new Enemy(1350, 30),
+        new Enemy(1500, 300),
+        new Enemy(1600, 220),
+        new Enemy(1700, 200),
+        new Enemy(1890, 200),
+        new Enemy(1990, 140),
+        new Enemy(1790, 240),
+        new Enemy(2250, 0),
+        new Enemy(2250, 200),
+        new Enemy(2350, 130),
+        new Enemy(2450, 170),
+        new Enemy(2550, 130),
+        new Enemy(2480, 140),
+        new Enemy(2450, 350),
+        new Enemy(2850, 0),
+        new Enemy(2950, 90),
+        new Enemy(3050, 190),
+        new Enemy(3250, 320),
+        new Enemy(3350, 120),
+        new Enemy(3450, 160),
+        new Enemy(3250, 400),
+        new Enemy(3750, 150),
+        new Enemy(4000, 220),
+        new Enemy(4150, 320),
+        new Enemy(4250, 220),
+        new Enemy(4350, 120),
+    ],
+
+    [
+        /* Second Enemy (Qualle) */
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+        new Enemy_2(),
+    ],
+
+    [
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+        new Enemy_3(),
+    ],
+
+    [
+        /* Endboss (Orca) */
+        new Endboss()
+    ],
+
+    [
+        new Coin(200, 100),
+        new Coin(300, 110),
+        new Coin(600, 160),
+        new Coin(700, 220),
+        new Coin(800, 320),
+    ],
+
+    [
+        new Heart(100, 140),
+        new Heart(200, 240),
+        new Heart(140, 200),
+        new Heart(433, 123)
+    ]
 
 );
