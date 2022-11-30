@@ -1,35 +1,11 @@
-class MovableObject {
+class MovableObject extends DrawableObject {
     // Attributes
-    x = 120;
-    y = 280;
-    image;
-    height = 150;
-    width = 100;
-    imageCache = {};
-    currentImage = 0;
     speed = 0.15;
     otherDirection = false;
+    energy = 100;
+    lastHit = 0;
 
-    // Functions 
-    loadImage(path) {
-        this.image = new Image();
-        this.image.src = path;
-    }
-
-    draw(ctx) {
-        ctx.drawImage(this.image, this.x, this.y, this.height, this.width);
-    }
-
-    drawFrame(ctx) {
-
-        if (this instanceof Character || this instanceof Enemy || this instanceof Enemy_2 || this instanceof Enemy_3) {
-            ctx.beginPath();
-            ctx.linesWidth = "5";
-            ctx.strokesStyle = "blue";
-            ctx.rect(this.x, this.y, this.height, this.width);
-            ctx.stroke();
-        }
-    }
+    // Functions
 
     // Collision Formel
     /*  isColliding(obj) {
@@ -46,14 +22,25 @@ class MovableObject {
             this.y < mo.height;
     }
 
-
-    loadImages(arr) {
-        arr.forEach(path => {
-            let image = new Image();
-            image.src = path;
-            this.imageCache[path] = image;
-        });
+    hit() {
+        this.energy -= 5;
+        if (this.energy < 0) {
+            this.energy = 0;
+        } else {
+            this.lastHit = new Date().getTime();
+        }
     }
+
+    isHurt() {
+        let timePassed = new Date().getTime() - this.lastHit;
+        timePassed = timePassed / 1000;
+        return timePassed < 1;
+    }
+
+    isDead() {
+        return this.energy == 0;
+    }
+
 
     playAnimation(images) {
         let i = this.currentImage % images.length;

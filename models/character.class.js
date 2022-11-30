@@ -4,6 +4,7 @@ class Character extends MovableObject {
     height = 220;
     y = 120;
     speed = 7;
+
     IMAGES_WALKING = [
         'images/1.Sharkie/3.Swim/1.png',
         'images/1.Sharkie/3.Swim/2.png',
@@ -12,12 +13,36 @@ class Character extends MovableObject {
         'images/1.Sharkie/3.Swim/5.png',
         'images/1.Sharkie/3.Swim/6.png'
     ];
+
+    IMAGES_DEAD = [
+        "images/1.Sharkie/6.dead/2.Electro_shock/1.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/2.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/3.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/4.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/5.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/6.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/7.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/8.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/9.png",
+        "images/1.Sharkie/6.dead/2.Electro_shock/10.png"
+    ];
+
+    IMAGES_HURT = [
+        "images/1.Sharkie/5.Hurt/2.Electric shock/o1.png",
+        "images/1.Sharkie/5.Hurt/2.Electric shock/o2.png",
+        "images/1.Sharkie/5.Hurt/2.Electric shock/1.png",
+        "images/1.Sharkie/5.Hurt/2.Electric shock/2.png",
+        "images/1.Sharkie/5.Hurt/2.Electric shock/3.png"
+    ];
+
     world;
     swimming_sound = new Audio("./audio/swimming.wav");
 
     constructor() {
         super().loadImage("images/1.Sharkie/3.Swim/1.png");
         this.loadImages(this.IMAGES_WALKING);
+        this.loadImages(this.IMAGES_DEAD);
+        this.loadImages(this.IMAGES_HURT);
         this.animate();
     }
 
@@ -53,10 +78,15 @@ class Character extends MovableObject {
         }, 1000 / 60);
 
         setInterval(() => {
-
-            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                // Walk animation
-                this.playAnimation(this.IMAGES_WALKING);
+            if (this.isDead()) {
+                this.playAnimation(this.IMAGES_DEAD);
+            } else if (this.isHurt()) {
+                this.playAnimation(this.IMAGES_HURT);
+            } else {
+                if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                    // Walk animation
+                    this.playAnimation(this.IMAGES_WALKING);
+                }
             }
         }, 50);
     }
