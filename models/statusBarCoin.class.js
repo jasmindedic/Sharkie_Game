@@ -9,10 +9,7 @@ class StatusBarCoin extends DrawableObject {
     ];
 
     percentage = 100;
-    /* x = 20;
-    y = 30;
-    width = 200;
-    height = 80; */
+
 
     constructor() {
         super().loadImage(this.IMAGES_COINS[0]);

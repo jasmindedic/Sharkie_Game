@@ -1,6 +1,6 @@
 class ThrowableObject extends MovableObject {
     constructor(x, y) {
-        super().loadImage('img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png');
+        super().loadImage('images/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png');
         this.x = x;
         this.y = y;
         this.height = 25;
@@ -10,7 +10,7 @@ class ThrowableObject extends MovableObject {
 
     shoot() {
         this.speedY = 30;
-        setStoppableInterval(() => {
+        setInterval(() => {
             this.x += 10;
         }, 50);
     }

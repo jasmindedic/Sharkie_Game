@@ -5,6 +5,8 @@ class MovableObject extends DrawableObject {
     energy = 100;
     lastHit = 0;
     coinTotal = 0;
+    speedY = 30;
+
 
     offset =
         {
@@ -55,6 +57,14 @@ class MovableObject extends DrawableObject {
         this.coinTotal += 20;
         if (this.coinTotal >= 100) {
             this.coinTotal = 100;
+        }
+    }
+
+    /* Hearts */
+    collectHearts() {
+        this.energy += 10;
+        if (this.energy >= 100) {
+            this.energy = 100;
         }
     }
 

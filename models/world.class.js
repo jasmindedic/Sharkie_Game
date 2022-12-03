@@ -9,6 +9,7 @@ class World {
     camera_x = 0;
     statusBar = new StatusBar();
     statusBarCoins = new StatusBarCoin();
+    throwableObjects = [];
 
     // Constructor
     constructor(canvas, keyboard) {
@@ -19,6 +20,8 @@ class World {
         this.setWorld();
         this.checkCollisions();
         this.checkCollisionCoins();
+        this.checkCollisionHearts();
+        this.runThrowableObject();
     }
 
     setWorld() {
@@ -36,32 +39,47 @@ class World {
         }, 200);
     }
 
-    // Collisions for coins
-    /*    checkCollisionCoins() {
-           this.level.coins.forEach((coin, i) => {
-               if (this.character.isColliding(coin)) {
-                   if (this.character.coinTotal < 100) {
-                       this.character.collectCoin();
-                       this.level.coins.splice(i, 1);
-                       console.log("works")
-                       this.statusBarCoins.setPercentage(this.character.coinTotal);
-                   }
-               }
-           })
-       } */
-
-
+    /* Coins */
     checkCollisionCoins() {
         setInterval(() => {
             this.level.coins.forEach((coin) => {
                 if (this.character.isColliding(coin)) {
+                    this.level.coins.splice(coin, 1);
                     this.character.collectCoin();
-                    console.log("works!")
                     this.statusBarCoins.setPercentage(this.character.coinTotal);
                 }
             });
-        }, 500);
+        }, 100);
     }
+
+    /* Hearts */
+    checkCollisionHearts() {
+        setInterval(() => {
+            this.level.hearts.forEach((heart) => {
+                if (this.character.isColliding(heart)) {
+                    this.level.hearts.splice(heart, 1)
+                    this.character.collectHearts();
+                    this.statusBar.setPercentage(this.character.energy);
+                }
+            });
+        }, 100);
+    }
+
+    /* Throwable object */
+    runThrowableObject() {
+        setInterval(() => {
+            this.checkThrowObjects();
+        }, 200);
+    }
+
+    checkThrowObjects() {
+        if (this.keyboard.SPACE) {
+            console.log("bubble");
+            let bubble = new ThrowableObject(this.character.x + 110, this.character.y + 110);
+            this.throwableObjects.push(bubble);
+        }
+    }
+
 
     // Functions
     draw() {
@@ -75,6 +93,7 @@ class World {
         this.addObjectsToMap(this.level.enemies_2);
         this.addObjectsToMap(this.level.enemies_3);
         this.addObjectsToMap(this.level.endBoss);
+        this.addObjectsToMap(this.throwableObjects);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.hearts);
         this.addToMap(this.character);
