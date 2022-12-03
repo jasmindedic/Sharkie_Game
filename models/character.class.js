@@ -1,9 +1,18 @@
 class Character extends MovableObject {
 
-    width = 220;
-    height = 220;
+    width = 200;
+    height = 200;
     y = 120;
     speed = 7;
+
+    /* Htibox */
+    offset =
+        {
+            top: 120,
+            left: 30,
+            right: 40,
+            bottom: 30,
+        }
 
     IMAGES_WALKING = [
         'images/1.Sharkie/3.Swim/1.png',
@@ -80,6 +89,7 @@ class Character extends MovableObject {
         setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
+                this.energy = -1;
             } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             } else {

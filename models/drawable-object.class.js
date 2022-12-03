@@ -25,7 +25,7 @@ class DrawableObject {
             ctx.linesWidth = "5";
             ctx.strokesStyle = "blue";
             ctx.rect(this.x, this.y, this.height, this.width);
-            ctx.stroke();
+            /* ctx.stroke(); */
         }
     }
 

@@ -4,23 +4,32 @@ class MovableObject extends DrawableObject {
     otherDirection = false;
     energy = 100;
     lastHit = 0;
+    coinTotal = 0;
+
+    offset =
+        {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+        }
 
     // Functions
+    isColliding(obj) {
+        return this.x + this.width - this.offset.right > obj.x + obj.offset.left &&
+            this.y + this.height - this.offset.bottom > obj.y + obj.offset.top &&
+            this.x + this.offset.left < obj.x + obj.width - obj.offset.right &&
+            this.y + this.offset.top < obj.y + obj.height - obj.offset.bottom;
+        //obj.onCollisionCourse; // Optional: hiermit könnten wir schauen, ob ein Objekt sich in die richtige Richtung bewegt. Nur dann kollidieren wir. Nützlich bei Gegenständen, auf denen man stehen kann.
 
-    // Collision Formel
-    /*  isColliding(obj) {
-         return (this.X + this.width) >= obj.X && this.X <= (obj.X + obj.width) &&
-             (this.Y + this.offsetY + this.height) >= obj.Y &&
-             (this.Y + this.offsetY) <= (obj.Y + obj.height) &&
-             obj.onCollisionCourse; // Optional: hiermit könnten wir schauen, ob ein Objekt sich in die richtige Richtung bewegt. Nur dann kollidieren wir. Nützlich bei Gegenständen, auf denen man stehen kann.
-     } */
-
-    isColliding(mo) {
-        return this.x + this.width > mo.x &&
-            this.y + this.height > mo.y &&
-            this.x < mo.x &&
-            this.y < mo.height;
     }
+
+    /*  isColliding(mo) {
+         return this.x + this.width > mo.x &&
+             this.y + this.height > mo.y &&
+             this.x < mo.x &&
+             this.y < mo.height;
+     } */
 
     hit() {
         this.energy -= 5;
@@ -41,6 +50,13 @@ class MovableObject extends DrawableObject {
         return this.energy == 0;
     }
 
+    /* Coins */
+    collectCoin() {
+        this.coinTotal += 20;
+        if (this.coinTotal >= 100) {
+            this.coinTotal = 100;
+        }
+    }
 
     playAnimation(images) {
         let i = this.currentImage % images.length;

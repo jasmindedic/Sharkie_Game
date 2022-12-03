@@ -8,6 +8,7 @@ class World {
     keyboard;
     camera_x = 0;
     statusBar = new StatusBar();
+    statusBarCoins = new StatusBarCoin();
 
     // Constructor
     constructor(canvas, keyboard) {
@@ -17,6 +18,7 @@ class World {
         this.draw();
         this.setWorld();
         this.checkCollisions();
+        this.checkCollisionCoins();
     }
 
     setWorld() {
@@ -34,6 +36,33 @@ class World {
         }, 200);
     }
 
+    // Collisions for coins
+    /*    checkCollisionCoins() {
+           this.level.coins.forEach((coin, i) => {
+               if (this.character.isColliding(coin)) {
+                   if (this.character.coinTotal < 100) {
+                       this.character.collectCoin();
+                       this.level.coins.splice(i, 1);
+                       console.log("works")
+                       this.statusBarCoins.setPercentage(this.character.coinTotal);
+                   }
+               }
+           })
+       } */
+
+
+    checkCollisionCoins() {
+        setInterval(() => {
+            this.level.coins.forEach((coin) => {
+                if (this.character.isColliding(coin)) {
+                    this.character.collectCoin();
+                    console.log("works!")
+                    this.statusBarCoins.setPercentage(this.character.coinTotal);
+                }
+            });
+        }, 500);
+    }
+
     // Functions
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -41,15 +70,6 @@ class World {
         this.ctx.translate(this.camera_x, 0);
 
         this.addObjectsToMap(this.level.backgroundObjects);
-
-        this.ctx.translate(-this.camera_x, 0); // Back
-        this.addToMap(this.statusBar);
-        this.ctx.translate(this.camera_x, 0); // Forwards
-
-
-        // Create character
-        this.addToMap(this.character);
-        // invoke function which loops over arrays to display content
         this.addObjectsToMap(this.level.lights);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.enemies_2);
@@ -57,10 +77,15 @@ class World {
         this.addObjectsToMap(this.level.endBoss);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.hearts);
+        this.addToMap(this.character);
+
+        this.ctx.translate(-this.camera_x, 0); // Back
+        this.addToMap(this.statusBar);
+        this.addToMap(this.statusBarCoins);
+        this.ctx.translate(this.camera_x, 0); // Forwards
 
         this.ctx.translate(-this.camera_x, 0);
 
-        // Draw gets invoked multiple times
         let self = this;
         requestAnimationFrame(function () {
             self.draw();
