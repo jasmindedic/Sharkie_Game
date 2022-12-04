@@ -1,14 +1,539 @@
+* {
+    font-family: 'Luckiest Guy', sans-serif;
+}
+
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-image: url("images/3. Background/Dark/1.png");
-    color: #fff;
-    font-family: sans-serif;
+    margin: 0;
 }
 
 canvas {
-    background-color: black;
-    border: solid white 4px;
+    border: 4px solid white;
+    border-radius: 4px;
+    display: block;
 }
 
+.d-none {
+    display: none !important;
+}
+
+.start-section {
+    background-image: url('img/3. Background/Mesa de trabajo 1.png');
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.start-page-headline {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    font-size: 64px;
+    color: #1B1464;
+    background-color: #FCEE21;
+    border: 8px solid white;
+    border-radius: 16px;
+}
+
+
+.start-instructions-btn {
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    padding: 16px;
+    font-size: 48px;
+    border: 8px solid white;
+    border-radius: 25px;
+    background-color: #FCEE21;
+    color: #1B1464;
+}
+
+.start-instructions-btn:hover {
+    cursor: pointer;
+}
+
+.instructions-section {
+    background-image: url('img/3. Background/Legacy/Dark/1.png');
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+.instructions-page-headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+    padding: 16px;
+    font-size: 48px;
+    color: #1B1464;
+    background-color: #FCEE21;
+    border: 8px solid white;
+    border-radius: 16px;
+    height: 10vh;
+}
+
+.slideshow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instructions {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #1B1464;
+    font-size: 28px;
+    background-color: #FCEE21;
+    border: 8px solid white;
+    border-radius: 16px;
+    text-align: center;
+    width: 100%;
+    margin: 16px;
+    padding: 16px;
+    animation: zoomIn 225ms ease-in-out;
+
+}
+
+.sharkie-explain-img {
+    width: 25%;
+    height: auto;
+}
+
+.explain-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.finalboss-explain-img {
+    width: 30%;
+}
+
+.key-explain-img {
+    width: 15%;
+    object-fit: contain;
+}
+
+.next-btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+.next-btn {
+    padding: 16px;
+    font-size: 28px;
+    border: 8px solid white;
+    border-radius: 25px;
+    background-color: #FCEE21;
+    color: #1B1464;
+}
+
+.next-btn:hover {
+    cursor: pointer;
+}
+
+.game-section {
+    background-image: url('img/3. Background/Dark/1.png');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+.character-keys {
+    display: flex;
+}
+
+.key-instructrions {
+    margin: 8px;
+    padding: 8px;
+    background-color: #FCEE21;
+    border: 4px solid white;
+    border-radius: 10px;
+}
+
+
+.key-instructrions-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.settings-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 720px;
+}
+
+.fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-btn {
+    font-size: 28px;
+    margin: 8px;
+    padding: 8px;
+    background-color: #FCEE21;
+    border: 4px solid white;
+    border-radius: 10px;
+    color: #1B1464;
+}
+
+.fullscreen-btn:hover {
+    cursor: pointer;
+}
+
+.bgMusic-btn {
+    font-size: 28px;
+    margin: 8px;
+    padding: 8px;
+    background-color: #FCEE21;
+    border: 4px solid white;
+    border-radius: 10px;
+    color: #1B1464;
+}
+
+.bgMusic-btn-img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.bgMusic-btn:hover {
+    cursor: pointer;
+}
+
+.smartphone-keys {
+    display: none;
+}
+
+.smartphone-btn {
+    width: 48px;
+    height: 48px;
+    margin: 4px;
+    padding: 8px;
+    font-size: 18px;
+    background-color: #7EFFE0;
+    border: 4px solid white;
+    border-radius: 10px;
+    color: #1B1464;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smartphone-btn-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.game-over-section {
+    background-image: url('img/3. Background/Dark/1.png');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: zoomIn 225ms ease-in-out;
+
+}
+
+.win-game-div {
+    width: 100%;
+    height: 100%;
+}
+
+.win-game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.restart-btn {
+    padding: 16px;
+    font-size: 48px;
+    border: 8px solid white;
+    border-radius: 25px;
+    background-color: #FCEE21;
+    color: #1B1464;
+    position: absolute;
+    top: 70%;
+}
+
+.restart-btn:hover {
+    cursor: pointer;
+}
+
+.lose-game-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.lose-game-img {
+    width: 30%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.game-over-text {
+    font-size: 100px;
+    color: white;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .canvas-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    canvas {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+    }
+
+    .start-section {
+        background-image: url('img/3. Background/Mesa de trabajo 1 mobile.png');
+        background-position: center;
+    }
+
+    .start-page-headline {
+        font-size: 28px;
+    }
+
+    .start-instructions-btn {
+        font-size: 28px;
+
+    }
+
+    .instructions-page-headline {
+        font-size: 28px;
+        padding: 0;
+    }
+
+    .sharkie-explain-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .explain-img {
+        width: 30%;
+        height: auto;
+    }
+
+    .heart-explain-img {
+        width: 50%;
+    }
+
+    .finalboss-explain-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .key-explain-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .instructions {
+        font-size: 18px;
+    }
+
+    .character-keys {
+        display: none;
+    }
+
+    .fullscreen {
+        display: none;
+    }
+
+    .bgMusic-btn {
+        display: none;
+    }
+
+    .smartphone-keys {
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .space-bar {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .left-down-right-keys {
+        display: flex;
+    }
+
+    .up-key {
+        display: flex;
+        justify-content: center;
+    }
+
+    .win-game-img {
+        height: 50%;
+        object-fit: fill;
+    }
+
+    .game-over-text {
+        font-size: 45px;
+    }
+
+    .restart-btn {
+        font-size: 28px;
+    }
+
+}
+
+@media only screen and (max-height: 480px) {
+
+    .start-section {
+        background-image: url('img/3. Background/Mesa de trabajo 1 mobile.png');
+        background-position: center;
+    }
+
+    .start-page-headline {
+        font-size: 28px;
+    }
+
+    .start-instructions-btn {
+        font-size: 28px;
+
+    }
+
+    .instructions-page-headline {
+        font-size: 18px;
+        padding: 0;
+    }
+
+    .sharkie-explain-img {
+        width: 30%;
+        height: auto;
+    }
+
+    .explain-img {
+        width: 5%;
+        height: auto;
+    }
+
+    .heart-explain-img {
+        width: 10%;
+    }
+
+    .finalboss-explain-img {
+        width: 20%;
+        height: auto;
+    }
+
+    .key-explain-img {
+        width: 20%;
+        height: auto;
+    }
+
+    .instructions {
+        font-size: 18px;
+    }
+
+    .next-btn {
+        font-size: 18px;
+    }
+
+    canvas {
+        height: 100vh;
+        width: 100vw;
+        border: none;
+    }
+
+    .character-keys {
+        display: none;
+    }
+
+    .fullscreen {
+        display: none;
+    }
+
+    .bgMusic-btn {
+        display: none;
+    }
+
+    .smartphone-keys {
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .space-bar {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .left-down-right-keys {
+        display: flex;
+    }
+
+    .up-key {
+        display: flex;
+        justify-content: center;
+    }
+
+    .win-game-img {
+        height: 50%;
+        object-fit: fill;
+    }
+
+    .game-over-text {
+        font-size: 45px;
+    }
+
+    .restart-btn {
+        font-size: 28px;
+    }
+}

@@ -1,39 +1,200 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharkie</title>
-    <!-- Css link -->
-    <link rel="stylesheet" href="./style.css">
-    <!-- Favicon link -->
-    <link rel="icon" type="image/x-icon" href="images/1.Sharkie/1.IDLE/1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="icon" href="img/1.Sharkie/1.IDLE/1.png">
+    <script src="classes/keyboard.class.js"></script>
+    <script src="classes/drawableObject.class.js"></script>
+    <script src="classes/movableObject.class.js"></script>
+    <script src="classes/character.class.js"></script>
+    <script src="classes/endboss.class.js"></script>
+    <script src="classes/world.class.js"></script>
+    <script src="classes/throwableObject.class.js"></script>
+    <script src="classes/pufferfish.class.js"></script>
+    <script src="classes/jellyfish.class.js"></script>
+    <script src="classes/coin.class.js"></script>
+    <script src="classes/heart.class.js"></script>
+    <script src="classes/statusBarLife.class.js"></script>
+    <script src="classes/statusBarCoin.class.js"></script>
+    <script src="classes/statusBarEndboss.class.js"></script>
+    <script src="classes/backgroundObject.class.js"></script>
+    <script src="classes/level.class.js"></script>
+    <script src="levels/level1.js"></script>
+    <script src="js/game.js"></script>
+    <title> Sharkie </title>
 </head>
-<body onload="init()">
-    <h1>Sharkie</h1>
-    <canvas id="canvas" width="720" height="400">
 
-    </canvas>
-    <!-- JavaScript links -->
-    <script src="./models/drawable-object.class.js"></script>
-    <script src="./models/movable-object.class.js"></script>
-    <script src="./models/character.class.js"></script>
-    <script src="./models/enemy.class.js"></script>
-    <script src="./models/enemy_2.class.js"></script>
-    <script src="./models/enemy_3.class.js"></script>
-    <script src="./models/heart.class.js"></script>
-    <script src="./models/coin.class.js"></script>
-    <script src="./models/light.class.js"></script>
-    <script src="./models/status-bar.class.js"></script>
-    <script src="./models/statusBarCoin.class.js"></script>
-    <script src="./models/world.class.js"></script>
-    <script src="./models/background-object.class.js"></script>
-    <script src="./models/keyboard.class.js"></script>
-    <script src="./models/level.class.js"></script>
-    <script src="./models/throwable-object.class.js"></script>
-    <script src="./models/endboss.class.js"></script>
-    <script src="./levels/level1.js"></script>
-    <script src="./js/game.js"></script>
+<body>
+
+    <section class="start-section" id="start-section">
+        <div class="start-page-headline"> THE SHARKIE ADVENTURE GAME </div>
+        <button class="start-instructions-btn" onclick="showInstructions()"> START </button>
+    </section>
+
+    <section class="instructions-section d-none" id="instructions-section">
+        <div class="instructions-page-headline">
+            <p> HOW TO PLAY</p>
+        </div>
+
+
+        <div class="slideshow">
+
+            <div class="instructions">
+
+                <img class="sharkie-explain-img" src="img/1.Sharkie/3.Swim/7.gif">
+                <p> Sharkie just wants to swim quietly in the vast ocean. But there are many dangers. </p>
+
+            </div>
+
+
+            <div class="instructions">
+
+                <div>
+                    <img class="explain-img"
+                        src="img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/Preview.gif">
+                    <img class="explain-img" src="img/2.Enemy/2 Jelly fish/S｣per dangerous/green .gif">
+                </div>
+                <p> Help Sharkie to dodge mean jellyfish and pufferfish who can deplete his lifepoints. </p>
+
+            </div>
+
+            <div class="instructions">
+
+                <div>
+                    <img class="explain-img" src="img/4. Marcadores/1. Coins/coin.gif">
+                    <img class="finalboss-explain-img" src="img/2.Enemy/3 Final Enemy/2.floating/endboss.gif">
+                </div>
+                <p> Collect at least 5 coins to be able to confront the final boss. </p>
+
+
+            </div>
+
+
+            <div class="instructions">
+                <img class="heart-explain-img" src="img/4. Marcadores/green/100_  copia 3.4.gif">
+                <p> If Sharkie took damage, restore his health back with hearts scattered across the ocean. </p>
+            </div>
+
+
+
+            <div class="instructions">
+
+                <div>
+                    <img class="key-explain-img" src="img/6.Botones/Key/arrow keys.png">
+                    <img class="key-explain-img" src="img/1.Sharkie/3.Swim/7.gif">
+                </div>
+                <p> Press the arrow keys to move Sharkie across the ocean. </p>
+            </div>
+
+            <div class="instructions">
+                <div>
+                    <img class="key-explain-img" src="img/6.Botones/Key/Space Bar key.png">
+                    <img class="key-explain-img" src="img/1.Sharkie/4.Attack/Bubble trap/For Whale/attack_poison.gif">
+                </div>
+                <p> Press the space bar to shoot a bubble at the endboss. </p>
+            </div>
+
+        </div>
+
+
+        <div class="next-btn-div">
+
+            <div>
+                <button class="next-btn d-none" id="start-game-btn" onclick="startGame()"> Start Game </button>
+                <button class="next-btn" id="next-btn" onclick="moveSlides(1)"> NEXT </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="game-section d-none" id="game-section">
+
+        <div class="character-keys">
+
+            <div class="key-instructrions">
+
+                <img class="key-instructrions-img" src="img/6.Botones/Key/arrow keys.png">
+                <img class="key-instructrions-img" src="img/1.Sharkie/3.Swim/7.gif">
+            </div>
+
+            <div class="key-instructrions">
+
+                <img class="key-instructrions-img" src="img/6.Botones/Key/Space Bar key.png">
+                <img class="key-instructrions-img" src="img/1.Sharkie/4.Attack/Bubble trap/For Whale/attack_poison.gif">
+            </div>
+
+
+        </div>
+
+        <div class="canvas-div">
+            <canvas id="canvas" width="720px" height="480px"> </canvas>
+        </div>
+
+        <div class="settings-btns">
+            <div class="fullscreen" id="fullscreen-btn-div">
+                <button class="fullscreen-btn" onclick="exitFullscreen()"> Off </button>
+                <text class="fullscreen-btn"> Fullscreen </text>
+                <button class="fullscreen-btn" onclick="startFullscreen()"> On </button>
+            </div>
+
+            <div id="bgMusic">
+                <button onclick="bgMusicOff()" class="bgMusic-btn"> <img class="bgMusic-btn-img"
+                        src="img/audio-speaker.png"></button>
+            </div>
+
+        </div>
+
+        <div class="smartphone-keys">
+
+            <div class="moving-keys">
+
+                <div class="up-key">
+                    <button class="smartphone-btn" ontouchstart="smartphoneKeys()" id="btnUp"><img
+                            class="smartphone-btn-img" src="img/arrow-up.png"></button>
+                </div>
+
+
+                <div class="left-down-right-keys">
+                    <button class="smartphone-btn" ontouchstart="smartphoneKeys()" id="btnLeft"><img
+                            class="smartphone-btn-img" src="img/arrow-left.png">
+                        <button class="smartphone-btn" ontouchstart="smartphoneKeys()" id="btnDown"><img
+                                class="smartphone-btn-img" src="img/arrow-down.png"></button>
+                        <button class="smartphone-btn" ontouchstart="smartphoneKeys()" id="btnRight"><img
+                                class="smartphone-btn-img" src="img/arrow-right.png"></button>
+                    </button>
+                </div>
+            </div>
+
+            <div class="space-bar">
+                <button class="smartphone-btn" style="width: 100px;" ontouchstart="smartphoneKeys()" id="btnAttack">
+                    SHOOT
+                </button>
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <section class="game-over-section d-none" id="game-over-section">
+
+        <div class="win-game-div d-none" id="win-game">
+            <img id="win-game-img" class="win-game-img" src="img/6.Botones/Tittles/You win/Mesa de trabajo 1.png">
+        </div>
+
+        <div class="lose-game-div d-none" id="lose-game">
+            <img class="lose-game-img" src="img/1.Sharkie/6.dead/2.Electro_shock/3.png">
+            <p class="game-over-text"> GAME OVER !</p>
+        </div>
+        <button class="restart-btn" id="restart-btn" onclick="restartGame()"> Restart Game </button>
+
+    </section>
 </body>
+
 </html>
