@@ -70,7 +70,7 @@ class Character extends MovableObject {
     electroshock_audio = new Audio('audio/hurt.mp3');
     attack_audio = new Audio('audio/attack_bubble.mp3');
     game_lose_audio = new Audio('audio/game_over.mp3');
-    hurt_by_endboss_audio = new Audio('audio/hurt_by_endbossmp3.mp3');
+    /* hurt_by_endboss_audio = new Audio('audio/hurt_by_endbossmp3.mp3'); */
 
     speed = 8;
     world;
