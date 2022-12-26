@@ -1,2 +1,2 @@
 # Sharkie
- - [Live](https://sharkie-game.vercel.app/)
+ - [Live](https://jasmindedic.github.io/Sharkie_Game/)
