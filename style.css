@@ -1,518 +1,539 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+* {
+    font-family: 'Luckiest Guy', sans-serif;
+}
 
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+canvas {
+    border: 4px solid white;
+    border-radius: 4px;
+    display: block;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.start-section {
+    background-image: url('img/3. Background/Mesa de trabajo 1.png');
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.start-page-headline {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    font-size: 64px;
+    color: #1B1464;
+    background-color: #1d5fba;
+    border: 8px solid white;
+    border-radius: 16px;
+}
+
+
+.start-instructions-btn {
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    padding: 16px;
+    font-size: 48px;
+    border: 8px solid white;
+    border-radius: 25px;
+    background-color:#1d5fba;
+    color: #1B1464;
+}
+
+.start-instructions-btn:hover {
+    cursor: pointer;
+}
+
+.instructions-section {
+    background-image: url('img/3. Background/Legacy/Dark/1.png');
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+.instructions-page-headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+    padding: 16px;
+    font-size: 48px;
+    color: #1B1464;
+    background-color:#1d5fba;
+    border: 8px solid white;
+    border-radius: 16px;
+    height: 10vh;
+}
+
+.slideshow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instructions {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #1B1464;
+    font-size: 28px;
+    background-color: #1d5fba;
+    border: 8px solid white;
+    border-radius: 16px;
+    text-align: center;
+    width: 100%;
+    margin: 16px;
+    padding: 16px;
+    animation: zoomIn 225ms ease-in-out;
+
+}
+
+.sharkie-explain-img {
+    width: 25%;
+    height: auto;
+}
+
+.explain-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.finalboss-explain-img {
+    width: 30%;
+}
+
+.key-explain-img {
+    width: 15%;
+    object-fit: contain;
+}
+
+.next-btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+.next-btn {
+    padding: 16px;
+    font-size: 28px;
+    border: 8px solid white;
+    border-radius: 25px;
+    background-color: #1d5fba;
+    color: #1B1464;
+}
+
+.next-btn:hover {
+    cursor: pointer;
+}
+
+.game-section {
+    background-image: url('img/3. Background/Dark/1.png');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    padding: 0;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
-    background: #221b5e;
-    overflow: hidden;
-    font-family: 'Varela Round', sans-serif;
-    color: white;
+    animation: zoomIn 225ms ease-in-out;
 }
 
-.absolute {
-    position: absolute;
-    z-index: 1;
+.character-keys {
+    display: flex;
 }
 
-#game-container {
-    background-color: black;
-    position: relative;
-    overflow: hidden
+.key-instructrions {
+    margin: 8px;
+    padding: 8px;
+    background-color:#1d5fba;
+    border: 4px solid white;
+    border-radius: 10px;
 }
 
-canvas {
-    display: block;
-    position: relative;
-}
 
-.icon {
+.key-instructrions-img {
+    width: 100px;
     height: 100px;
+    object-fit: contain;
 }
 
-.hide {
-    display:none !important
+.settings-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 720px;
 }
 
-.center {
+.fullscreen {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-}
-
-.button {
-    width:200px;
-    background-color: #9FC805;
-    border-radius: 10px;
-    height: 45px;
-    font-size: 20px;
-    box-shadow: 0px 4px #718E04;
-    text-shadow: 0px 2px 2px #718E04;
-    position: relative;
-    bottom: 0;
-    transition: .1s;
-    cursor: pointer;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-.button:hover {
-    bottom: -4px;
-    box-shadow: none;
-}
-
-/*Opening Screen*/
-#opening-screen {
-    background: url('./assets/ui-images/menu.png');
-    height: 100%;
-    width: 100%;
-    z-index: 99;
-    background-size: cover;
-    background-color: #221b5e;
-}
-
-#opening-header {
-    color: white;
-    font-size: 128px;
-    font-family: 'Fredoka One', cursive;
-    margin-bottom: 120px;
-    animation: breathing 5s ease-in-out infinite;
-    text-shadow: 1px 1px #3798C5,
-    2px 2px #3798C5,
-    3px 3px #3798C5,
-    4px 4px #3798C5,
-    6px 6px #4A43AE,
-    6px 6px #4A43AE,
-    7px 7px #4A43AE,
-    8px 8px #4A43AE,
-    0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-#opening-sharkie {
-    height: 250px;
-    transform: translateX(-230px) translateY(-170px) rotate(30deg);
-    z-index: -1;
-}
-
-#play-button {
-    height: 60px;
-    width: 250px;
+.fullscreen-btn {
     font-size: 28px;
-    box-shadow: 0px 7px #718E04;
-}
-
-#play-button:hover {
-    box-shadow: none;
-    bottom: -7px
-}
-
-@keyframes breathing {
-    0% {
-      transform: scale(1);
-    }
-  
-    50% {
-      transform: scale(0.96);
-    }
-  
-    100% {
-      transform: scale(1);
-    }
-}
-
-/*Tutorial Dialogs*/
-#tutorial-container {
-    height: 100%;
-    width: 100%;
-}
-
-.tutorial-dialog-container {
-    height: 400px;
-    width: 600px;
-    background: #4335bd;
-    border-radius: 20px;
-    padding: 15px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    justify-content: space-between;
-}
-
-#quest-dialog-container {
-    justify-content: space-between;
-    font-size: 18px;
-    text-align: center;
-}
-
-#quest-dialog-container span {
-    margin: 0 100px;
-}
-
-#quest-dialog-container img {
-    height: 180px;
-    background: #392da7;
-    width: 100%;
-    object-fit: contain;
-    border-radius: 20px;
-    padding: 10px 0;
-}
-
-/*Controls*/
-.controls-key {
-    background: #392da7;
-    border-radius: 20px;
-    padding: 15px;
-    width: 20px;
-    font-weight: bold;
-    border: 3px solid #574bc7; 
-    margin: 0 auto;
-    margin-bottom: 10px;
-}
-
-td {
-    width: 50%;
-    padding-bottom: 10px;
-}
-
-#controls-move-container {
-    margin: 0 auto;
-    width: 150px;
-}
-
-#controls-jump-container {
-    margin: 0 auto;
-    width: 250px;
-}
-
-#controls-space{
-    width: 120px;
-}
-
-.controls-label {
-    font-size: 18px;
-}
-
-#controls-ok-button{
-    margin: 0 auto;
-}
-
-/*Ingame Top right*/
-#ingame-top-right {
-    display: flex;
-    align-items: flex-end;
-    right: 0;
-    padding: 12px;
-}
-
-/*Ingame Menu*/
-#ingame-menu {
-    right: 0;
-    margin-bottom: 10px;
-}
-
-.menu-button {
-    height: 32px;
-    width: 32px;
-    background: rgb(54, 162, 250);
+    margin: 8px;
+    padding: 8px;
+    background-color: #1d5fba;
+    border: 4px solid white;
     border-radius: 10px;
+    color: #1B1464;
+}
+
+.fullscreen-btn:hover {
     cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    margin-left: 15px;
-    transition: 100ms;
 }
 
-.menu-button:hover {
-    transform: scale(1.1);
+.bgMusic-btn {
+    font-size: 28px;
+    margin: 8px;
+    padding: 8px;
+    background-color: #1d5fba;
+    border: 4px solid white;
+    border-radius: 10px;
+    color: #1B1464;
 }
 
-.menu-button img {
-    height: 22px;
+.bgMusic-btn-img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 
-/*Coin and Poison Containers**/
-.amount-container {
-    background: rgba(0, 0, 0, 0.2);
-    top: 3vh;
-    right: 45px;
-    height: 39px;
-    width: 130px;
-    border-radius: 40px;
+.bgMusic-btn:hover {
+    cursor: pointer;
+}
+
+.smartphone-keys {
+    display: none;
+}
+
+.smartphone-btn {
+    width: 48px;
+    height: 48px;
+    margin: 4px;
+    padding: 8px;
+    font-size: 18px;
+    background-color: #7EFFE0;
+    border: 4px solid white;
+    border-radius: 10px;
+    color: #1B1464;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    font-weight: 600;
-    color: white;
-    font-size: 22px;
-    padding-right: 43px;
-    margin: 20px 0;
-    margin-right: 10px;
+    justify-content: center;
 }
 
-.amount-container img {
-    right: -10px;
-    height: 80px;
-}
-
-/*Poison Container*/
-.unlocked-poison {
-    background: #41e041a2;
-    color: white;
-}
-
-/*Health Bars*/
-.health-bar-container {
-    background: linear-gradient(white, #AAE8FF);
+.smartphone-btn-img {
+    width: 32px;
     height: 32px;
-    border-radius: 40px;
-    border: white solid 3px;
+    object-fit: contain;
 }
 
-.health-bar {
+.game-over-section {
+    background-image: url('img/3. Background/Dark/1.png');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: zoomIn 225ms ease-in-out;
+
+}
+
+.win-game-div {
     width: 100%;
     height: 100%;
-    border-radius: 40px;
-    background: linear-gradient(#b5ff2b, #82c900);
-    border: white solid 3px;
-    top: -3px;
+}
+
+.win-game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.restart-btn {
+    padding: 16px;
+    font-size: 48px;
+    border: 8px solid white;
+    border-radius: 25px;
+    background-color:#1d5fba;
+    color: #1B1464;
     position: absolute;
-    transition: 300ms;
+    top: 70%;
 }
 
-/*Character Health Bar*/
-#health-bar-container {
-    top: 23px;
-    left: 45px;
-    width: 300px;
+.restart-btn:hover {
+    cursor: pointer;
 }
 
-#health-icon {
-    top: -45px;
-    left: -50px;
-}
-
-/*Final Boss Health Bar*/
-#final-boss-health-bar-container {
-    height: 23px;
-    bottom: 30px;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px
-}
-
-#final-boss-health-icon {
-    top: -32px;
-    left: -53px;
-    border: 3px white solid;
-    border-radius: 50%;
-    height: 70px;
-}
-
-/*Win Container*/
-#win-container {
-    height: 100%;
+.lose-game-div {
     width: 100%;
-    background: #1616669a;
-}
-
-#win-label {
-    color: white;
-    font-size: 92px;
-    font-family: 'Fredoka One';
-    white-space: nowrap;
-}
-
-#win-sharkie {
-    height: 250px;
-    transform: translateX(-270px) translateY(50px);
-}
-
-#win-collected-coins-container {
-    margin: 50px;
-    padding: 0 15px 0 20px;
-    background: rgba(0, 0, 0, 0.205);
-    border-radius: 30px;
-}
-
-#win-collected-coins-container img {
-    height: 50px;
-}
-
-/*Dead Container*/
-#dead-container {
     height: 100%;
-    width: 100%;
-    background: #1616669a;
+    display: flex;
+    align-items: center;
 }
 
-#dead-label {
+.lose-game-img {
+    width: 30%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.game-over-text {
+    font-size: 100px;
     color: white;
-    font-size: 92px;
-    font-family: 'Fredoka One';
-    margin-bottom: 150px;
-    white-space: nowrap;
 }
 
-#dead-sharkie {
-    height: 130px;
-    margin-top: 60px;
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
+@media only screen and (max-width: 720px) {
+    .canvas-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-/*Responsive Canvas*/
-@media only screen and (max-width: 1920px) {
     canvas {
-        max-width: 100%;
+        width: 100vw;
+        height: 100vh;
+        border: none;
     }
+
+    .start-section {
+        background-image: url('img/3. Background/Mesa de trabajo 1 mobile.png');
+        background-position: center;
+    }
+
+    .start-page-headline {
+        font-size: 28px;
+    }
+
+    .start-instructions-btn {
+        font-size: 28px;
+
+    }
+
+    .instructions-page-headline {
+        font-size: 28px;
+        padding: 0;
+    }
+
+    .sharkie-explain-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .explain-img {
+        width: 30%;
+        height: auto;
+    }
+
+    .heart-explain-img {
+        width: 50%;
+    }
+
+    .finalboss-explain-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .key-explain-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .instructions {
+        font-size: 18px;
+    }
+
+    .character-keys {
+        display: none;
+    }
+
+    .fullscreen {
+        display: none;
+    }
+
+    .bgMusic-btn {
+        display: none;
+    }
+
+    .smartphone-keys {
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .space-bar {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .left-down-right-keys {
+        display: flex;
+    }
+
+    .up-key {
+        display: flex;
+        justify-content: center;
+    }
+
+    .win-game-img {
+        height: 50%;
+        object-fit: fill;
+    }
+
+    .game-over-text {
+        font-size: 45px;
+    }
+
+    .restart-btn {
+        font-size: 28px;
+    }
+
 }
 
-@media only screen and (max-height: 1080px) {
+@media only screen and (max-height: 480px) {
+
+    .start-section {
+        background-image: url('img/3. Background/Mesa de trabajo 1 mobile.png');
+        background-position: center;
+    }
+
+    .start-page-headline {
+        font-size: 28px;
+    }
+
+    .start-instructions-btn {
+        font-size: 28px;
+
+    }
+
+    .instructions-page-headline {
+        font-size: 18px;
+        padding: 0;
+    }
+
+    .sharkie-explain-img {
+        width: 30%;
+        height: auto;
+    }
+
+    .explain-img {
+        width: 5%;
+        height: auto;
+    }
+
+    .heart-explain-img {
+        width: 10%;
+    }
+
+    .finalboss-explain-img {
+        width: 20%;
+        height: auto;
+    }
+
+    .key-explain-img {
+        width: 20%;
+        height: auto;
+    }
+
+    .instructions {
+        font-size: 18px;
+    }
+
+    .next-btn {
+        font-size: 18px;
+    }
+
     canvas {
-        max-height: 100vh;
+        height: 100vh;
+        width: 100vw;
+        border: none;
+    }
+
+    .character-keys {
+        display: none;
+    }
+
+    .fullscreen {
+        display: none;
+    }
+
+    .bgMusic-btn {
+        display: none;
+    }
+
+    .smartphone-keys {
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .space-bar {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .left-down-right-keys {
+        display: flex;
+    }
+
+    .up-key {
+        display: flex;
+        justify-content: center;
+    }
+
+    .win-game-img {
+        height: 50%;
+        object-fit: fill;
+    }
+
+    .game-over-text {
+        font-size: 45px;
+    }
+
+    .restart-btn {
+        font-size: 28px;
     }
 }
-
-/*Responsive UI*/
-@media (max-width: 1200px) {
-    #health-bar-container {
-        transform: scale(0.8);
-        left: 10px;
-    }
-
-    #final-boss-health-bar-container {
-        transform: scale(0.85);
-        bottom: 20px;
-    }
-
-    #ingame-top-right {
-        transform: scale(0.8);
-        top: -20px;
-        right: -20px;
-    }
-
-    #opening-content {
-        transform: scale(0.8);
-    }
-}
-
-@media(max-width: 900px) {
-    #health-bar-container {
-        transform: scale(0.6);
-        left: -30px;
-        top: 10px;
-    }
-
-    #final-boss-health-bar-container {
-        transform: scale(0.65);
-        bottom: 15px;
-    }
-
-    #ingame-top-right {
-        transform: scale(0.6);
-        top: -40px;
-        right: -40px;
-    }
-
-    #opening-content {
-        transform: scale(0.6);
-    }
-
-    #opening-sharkie {
-        height: 200px;
-        transform: translateX(-230px) translateY(-150px) rotate(30deg);
-    }
-
-    #tutorial-content {
-        transform: scale(0.7);
-    }
-
-    .result-content {
-        transform: scale(0.63); 
-    }
-}
-
-@media(max-width: 550px) {
-    #health-bar-container {
-        transform: scale(0.4);
-        left: -70px;
-        top: 5px;
-    }
-
-    #final-boss-health-bar-container {
-        transform: scale(0.45);
-        bottom: 3px;
-    }
-
-    #ingame-top-right {
-        transform: scale(0.5);
-        top: -50px;
-        right: -50px;
-    }
-
-    #opening-content {
-        transform: scale(0.5);
-    }
-
-    #tutorial-content {
-        transform: scale(0.5);
-    }
-
-    .result-content {
-        transform: scale(0.5); 
-    }
-
-    #dead-label {
-        margin-bottom: 100px;
-    }
-}
-
-@media(max-width: 450px) {
-    #health-bar-container {
-        transform: scale(0.3);
-        left: -90px;
-        top: -2px;
-    }
-
-    #final-boss-health-bar-container {
-        transform: scale(0.35);
-        bottom: 2px;
-    }
-
-    #ingame-top-right {
-        transform: scale(0.4);
-        top: -60px;
-        right: -60px;
-    }
-
-    #opening-content {
-        transform: scale(0.4);
-    }
-
-    #tutorial-content {
-        transform: scale(0.4);
-    }
-
-    .result-content {
-        transform: scale(0.4); 
-    }
-
-    #dead-label {
-        margin-bottom: 50px;
-    }
-}
-
-
